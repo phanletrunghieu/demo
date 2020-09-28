@@ -1,0 +1,10 @@
+endpoint: http://localhost:4466/default/default
+datamodel: datamodel.prisma
+secret: secret42
+generate:
+  - generator: javascript-client
+    output: ../src/generated/prisma-client
+databaseType: relational
+hooks:
+  post-deploy:
+    - prisma generate

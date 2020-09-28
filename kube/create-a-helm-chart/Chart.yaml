@@ -1,0 +1,19 @@
+apiVersion: v2
+name: my-first-chart
+version: 0.0.1
+kubeVersion: ^1.17.0
+type: application
+description: A demo helm chart
+keywords:
+  - demo
+  - first
+home: http://www.wordpress.com
+sources:
+  - https://github.com/phanletrunghieu/demo/tree/master/kube/create-a-helm-chart
+maintainers:
+  - name: Hieu Phan
+    email: hieutrunglephan@gmail.com
+    url: https://github.com/phanletrunghieu
+icon: https://bitnami.com/assets/stacks/wordpress/img/wordpress-stack-220x234.png
+appVersion: 0.0.1
+deprecated: false

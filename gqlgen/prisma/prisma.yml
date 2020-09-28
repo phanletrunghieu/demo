@@ -1,0 +1,11 @@
+endpoint: http://localhost:4466/default/default
+datamodel: datamodel.prisma
+secret: secret42
+generate:
+  - generator: go-client
+    output: ../prisma-client/
+hooks:
+  post-deploy:
+    - prisma generate
+# seed:
+#   run: go run ./prisma/seed.go

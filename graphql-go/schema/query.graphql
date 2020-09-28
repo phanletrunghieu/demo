@@ -1,0 +1,4 @@
+type Query {
+    info: String!
+    feed(filter: String, offset: Int, limit: Int): [Link!]!
+}

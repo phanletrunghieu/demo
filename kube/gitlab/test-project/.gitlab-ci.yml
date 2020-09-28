@@ -1,0 +1,18 @@
+image: golang:1.12-alpine
+
+variables:
+  REPO_NAME: test-project
+  CONTAINER_TEST_IMAGE: $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG
+
+stages:
+  - build
+  - deploy
+
+build:
+  image: docker:dind
+  stage: build
+  script:
+    - echo $CONTAINER_TEST_IMAGE
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - docker build -t $CONTAINER_TEST_IMAGE .
+    - docker push $CONTAINER_TEST_IMAGE

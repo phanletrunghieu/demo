@@ -1,0 +1,25 @@
+apiVersion: stash.appscode.com/v1beta1
+kind: RestoreSession
+metadata:
+  name: deployment-restore
+spec:
+  repository:
+    name: s3-repo
+  rules:
+  # - paths:
+  #   - /var/lib/mysql
+  - snapshots:
+    - b30b846e1fd910059ec3bf5215bff49a58d326ffa5913d079dec33dd375da959
+  target: # target indicates where the recovered data will be stored
+    ref:
+      apiVersion: apps/v1
+      kind: Deployment
+      name: mysql
+    volumeMounts:
+    - name:  data
+      mountPath:  /var/lib/mysql
+  runtimeSettings:
+    container:
+      securityContext:
+        runAsUser: 999
+        runAsGroup: 999

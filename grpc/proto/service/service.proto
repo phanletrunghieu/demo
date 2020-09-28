@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package service;
+
+option go_package = "github.com/phanletrunghieu/demo/grpc/proto/service";
+import "github.com/phanletrunghieu/demo/grpc/proto/domain/domain.proto";
+
+service Greeter {
+    rpc SayHello (domain.HelloRequest) returns (domain.HelloResponse);
+}

@@ -1,0 +1,16 @@
+jaeger:
+  cassandra:
+    config:
+      cluster_size: 1
+      max_heap_size: 384M
+      heap_new_size: 96M
+    resources:
+      requests:
+        cpu: 400m
+        memory: 768Mi
+      limits:
+        cpu: 400m
+        memory: 768Mi
+  agent:
+    service:
+      type: NodePort

@@ -1,0 +1,12 @@
+dependencies:
+- name: apm-server
+  repository: https://helm.elastic.co
+  version: 7.8.1
+- name: elasticsearch
+  repository: https://helm.elastic.co
+  version: 7.8.1
+- name: kibana
+  repository: https://helm.elastic.co
+  version: 7.8.1
+digest: sha256:1a7eb87a2fd02ebdc1a404d9f43895c3827bd8b695d4b9f64ea7cbbbe6114b5e
+generated: "2020-08-14T16:14:09.047183+07:00"

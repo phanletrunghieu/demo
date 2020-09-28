@@ -1,0 +1,11 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  annotations:
+    cas.openebs.io/config: "- name: StorageType\n  value: \"hostpath\"\n- name: BasePath\n
+      \ value: /var/openebs/local \n"
+    openebs.io/cas-type: local
+  name: openebs-hostpath-retain
+provisioner: openebs.io/local
+reclaimPolicy: Retain
+volumeBindingMode: WaitForFirstConsumer

@@ -1,0 +1,5 @@
+instances:
+  - name: 'elasticsearch-master'
+    dns: [ 'elasticsearch-master.app.svc.cluster.local' ]
+  - name: 'kibana'
+    dns: [ 'apm-kibana.app.svc.cluster.local' ]

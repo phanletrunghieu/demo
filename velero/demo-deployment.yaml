@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: backup-demo
+  name: backup-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backup-demo
+  template:
+    metadata:
+      labels:
+        app: backup-demo
+      name: busybox
+      annotations:
+        backup.velero.io/backup-volumes: source-data
+    spec:
+      containers:
+        - args: ["echo sample_data >> /source/data/data.txt && sleep 3000"]
+          command: ["/bin/sh", "-c"]
+          image: busybox
+          imagePullPolicy: IfNotPresent
+          name: busybox
+          volumeMounts:
+            - mountPath: /source/data
+              name: source-data
+          resources:
+            requests:
+              cpu: 100m
+              memory: 200Mi
+            limits:
+              cpu: 200m
+              memory: 500Mi
+      restartPolicy: Always
+      volumes:
+        - name: source-data
+          persistentVolumeClaim:
+            claimName: local-hostpath-pvc

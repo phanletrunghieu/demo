@@ -1,0 +1,5 @@
+replicaCount: 1
+text: "Hello! I'm Hieu Dep Trai"
+service:
+  type: ClusterIP
+  port: 80
